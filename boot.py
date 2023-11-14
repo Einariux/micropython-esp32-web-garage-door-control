@@ -10,4 +10,5 @@ esp.osdebug(None)
 vw = VartuWIFI()
 vw.connect()
 import vartu_valdymas
+import display
 led = Pin(2, Pin.OUT)
