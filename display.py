@@ -1,7 +1,7 @@
 import ssd1306
 from machine import Pin, I2C, RTC
 
-# Inicializuojame I2C ir SSD1306 ekranėlį
+# Priskiriam I2C sasaja ekranui
 i2c = I2C(1, scl=Pin(22), sda=Pin(21), freq=400000)
 display = ssd1306.SSD1306_I2C(128, 64, i2c)
 
@@ -9,12 +9,12 @@ display = ssd1306.SSD1306_I2C(128, 64, i2c)
 #sta_if = network.WLAN(network.STA_IF)
 #sta_if.active(True)
 
-# Pasiruošiame funkciją gauti IP adresą
+# Gaunam IP adresa
 def get_ip_address():
     if sta_if.isconnected():
         return sta_if.ifconfig()[0]
     else:
-        return "Not connected"
+        return "Neprisijungta"
 
 # Pradinis ekranėlio tekstas
 display.text("IP Adresas:", 0, 0)
