@@ -1,7 +1,6 @@
 import socket
 import gc
 import ujson
-import machine
 import time
 
 # GPIO pinai
