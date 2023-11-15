@@ -2,7 +2,8 @@ import machine
 import network
 
 # Priskiriam I2C sasaja ekranui
-
+i2c = I2C(1, scl=Pin(22), sda=Pin(21), freq=400000)
+display = ssd1306.SSD1306_I2C(128, 64, i2c)
 
 # Inicializuojame WiFi
 sta_if = network.WLAN(network.STA_IF)
@@ -33,7 +34,7 @@ while True:
     # Atnaujinti ekraną su IP adresu
     display.fill(0)  # Išvalome ekraną
     display.text("IP Adresas:", 0, 0)
-    ddisplay.text(ip_address, 0, 40)
+    display.text(ip_address, 0, 40)
     display.show()
 
     # Palaukime 10 sekundžių prieš atnaujinant
